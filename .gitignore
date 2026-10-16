@@ -1,0 +1,6 @@
+node_modules/
+android/
+tests/*.png
+__pycache__/
+*.pyc
+.DS_Store

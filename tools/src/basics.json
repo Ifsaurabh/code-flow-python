@@ -1,0 +1,563 @@
+[
+ {
+  "id": "b-c2f",
+  "kind": "script",
+  "title": "Celsius to Fahrenheit",
+  "section": "Python Basics",
+  "topic": "Variables & Math",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Convert the temperature in celsius to Fahrenheit (multiply by 9, divide by 5, add 32) and print the result.",
+  "setup": "celsius = 25",
+  "starter": "",
+  "ref": "fahrenheit = celsius * 9 / 5 + 32\nprint(fahrenheit)",
+  "hints": []
+ },
+ {
+  "id": "b-last",
+  "kind": "script",
+  "title": "Last digit",
+  "section": "Python Basics",
+  "topic": "Variables & Math",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print the last digit of number.",
+  "setup": "number = 4827",
+  "starter": "",
+  "ref": "print(number % 10)",
+  "hints": []
+ },
+ {
+  "id": "b-digits",
+  "kind": "script",
+  "title": "Count the digits",
+  "section": "Python Basics",
+  "topic": "Variables & Math",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print how many digits number has.",
+  "setup": "number = 90210",
+  "starter": "",
+  "ref": "print(len(str(number)))",
+  "hints": []
+ },
+ {
+  "id": "d-evenodd",
+  "kind": "script",
+  "title": "Even or odd",
+  "section": "Python Basics",
+  "topic": "Decisions (if/else)",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print the word even or the word odd, depending on number.",
+  "setup": "number = 17",
+  "starter": "",
+  "ref": "if number % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"odd\")",
+  "hints": []
+ },
+ {
+  "id": "d-grade",
+  "kind": "script",
+  "title": "Grade from score",
+  "section": "Python Basics",
+  "topic": "Decisions (if/else)",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print A for 90 and above, B for 75 to 89, C for 50 to 74, otherwise F.",
+  "setup": "score = 82",
+  "starter": "",
+  "ref": "if score >= 90:\n    print(\"A\")\nelif score >= 75:\n    print(\"B\")\nelif score >= 50:\n    print(\"C\")\nelse:\n    print(\"F\")",
+  "hints": []
+ },
+ {
+  "id": "d-larger",
+  "kind": "script",
+  "title": "Larger of two",
+  "section": "Python Basics",
+  "topic": "Decisions (if/else)",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "The list pair holds two numbers. Print the larger one without using max().",
+  "setup": "pair = [12, 9]",
+  "starter": "",
+  "ref": "if pair[0] > pair[1]:\n    print(pair[0])\nelse:\n    print(pair[1])",
+  "hints": []
+ },
+ {
+  "id": "l-sum",
+  "kind": "script",
+  "title": "Add up the numbers",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Add up all the numbers in the list using a for loop, then print the total.",
+  "setup": "numbers = [3, 7, 2, 5]",
+  "starter": "",
+  "ref": "total = 0\nfor n in numbers:\n    total = total + n\nprint(total)",
+  "hints": []
+ },
+ {
+  "id": "l-evens",
+  "kind": "script",
+  "title": "Count the even numbers",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Count how many numbers in the list are even, then print the count.",
+  "setup": "numbers = [4, 9, 12, 7, 10]",
+  "starter": "",
+  "ref": "count = 0\nfor n in numbers:\n    if n % 2 == 0:\n        count = count + 1\nprint(count)",
+  "hints": []
+ },
+ {
+  "id": "l-largest",
+  "kind": "script",
+  "title": "Find the largest",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Find the largest number in the list without using max(), then print it.",
+  "setup": "numbers = [8, 3, 15, 6]",
+  "starter": "",
+  "ref": "biggest = numbers[0]\nfor n in numbers:\n    if n > biggest:\n        biggest = n\nprint(biggest)",
+  "hints": []
+ },
+ {
+  "id": "l-double",
+  "kind": "script",
+  "title": "Double every number",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Build a new list that holds every number doubled, then print that new list.",
+  "setup": "numbers = [1, 2, 3]",
+  "starter": "",
+  "ref": "doubled = []\nfor n in numbers:\n    doubled.append(n * 2)\nprint(doubled)",
+  "hints": []
+ },
+ {
+  "id": "l-product",
+  "kind": "script",
+  "title": "Multiply them all",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Multiply all the numbers together and print the result.",
+  "setup": "numbers = [2, 3, 4]",
+  "starter": "",
+  "ref": "product = 1\nfor n in numbers:\n    product = product * n\nprint(product)",
+  "hints": []
+ },
+ {
+  "id": "l-each",
+  "kind": "script",
+  "title": "Print each number",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print every number on its own line.",
+  "setup": "numbers = [5, 1, 4]",
+  "starter": "",
+  "ref": "for n in numbers:\n    print(n)",
+  "hints": []
+ },
+ {
+  "id": "l-above10",
+  "kind": "script",
+  "title": "Count the big ones",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Count how many numbers are greater than 10 and print the count.",
+  "setup": "numbers = [4, 12, 9, 25, 10]",
+  "starter": "",
+  "ref": "count = 0\nfor n in numbers:\n    if n > 10:\n        count = count + 1\nprint(count)",
+  "hints": []
+ },
+ {
+  "id": "l-average",
+  "kind": "script",
+  "title": "Average",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print the average of the numbers (their sum divided by how many there are).",
+  "setup": "numbers = [10, 20, 30, 40]",
+  "starter": "",
+  "ref": "total = 0\nfor n in numbers:\n    total = total + n\nprint(total / len(numbers))",
+  "hints": []
+ },
+ {
+  "id": "l-odds",
+  "kind": "script",
+  "title": "Keep only the odd ones",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Build a new list that holds only the odd numbers, then print it.",
+  "setup": "numbers = [1, 2, 3, 4, 5, 6, 7]",
+  "starter": "",
+  "ref": "odds = []\nfor n in numbers:\n    if n % 2 == 1:\n        odds.append(n)\nprint(odds)",
+  "hints": []
+ },
+ {
+  "id": "l-smallest",
+  "kind": "script",
+  "title": "Find the smallest",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Find the smallest number in the list without using min(), then print it.",
+  "setup": "numbers = [9, 4, 11, 2, 8]",
+  "starter": "",
+  "ref": "smallest = numbers[0]\nfor n in numbers:\n    if n < smallest:\n        smallest = n\nprint(smallest)",
+  "hints": []
+ },
+ {
+  "id": "l-running",
+  "kind": "script",
+  "title": "Running total",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Build a list where each item is the sum of all numbers so far, then print it. For [1, 2, 3, 4] the idea is: 1, then 1+2, then 1+2+3, and so on.",
+  "setup": "numbers = [1, 2, 3, 4]",
+  "starter": "",
+  "ref": "running = []\ntotal = 0\nfor n in numbers:\n    total = total + n\n    running.append(total)\nprint(running)",
+  "hints": []
+ },
+ {
+  "id": "l-count3",
+  "kind": "script",
+  "title": "How many threes",
+  "section": "Python Basics",
+  "topic": "Loops over a list",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Count how many times the number 3 appears in the list and print the count.",
+  "setup": "numbers = [3, 1, 3, 3, 7]",
+  "starter": "",
+  "ref": "count = 0\nfor n in numbers:\n    if n == 3:\n        count = count + 1\nprint(count)",
+  "hints": []
+ },
+ {
+  "id": "r-oneton",
+  "kind": "script",
+  "title": "Print 1 to limit",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Use range() to print every whole number from 1 up to and including limit, one per line.",
+  "setup": "limit = 5",
+  "starter": "",
+  "ref": "for i in range(1, limit + 1):\n    print(i)",
+  "hints": []
+ },
+ {
+  "id": "r-sumn",
+  "kind": "script",
+  "title": "Sum from 1 to n",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Add up every whole number from 1 to n and print the total.",
+  "setup": "n = 100",
+  "starter": "",
+  "ref": "total = 0\nfor i in range(1, n + 1):\n    total = total + i\nprint(total)",
+  "hints": []
+ },
+ {
+  "id": "r-fact",
+  "kind": "script",
+  "title": "Factorial",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print the factorial of n (1 x 2 x 3 x ... x n).",
+  "setup": "n = 5",
+  "starter": "",
+  "ref": "result = 1\nfor i in range(1, n + 1):\n    result = result * i\nprint(result)",
+  "hints": []
+ },
+ {
+  "id": "r-countdown",
+  "kind": "script",
+  "title": "Countdown",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Use a while loop to print n, then n-1, and so on down to 1, one per line.",
+  "setup": "n = 4",
+  "starter": "",
+  "ref": "while n > 0:\n    print(n)\n    n = n - 1",
+  "hints": []
+ },
+ {
+  "id": "r-halve",
+  "kind": "script",
+  "title": "Halving",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Count how many times n can be halved (whole-number division by 2) before it drops to 1 or less. Print the count.",
+  "setup": "n = 64",
+  "starter": "",
+  "ref": "count = 0\nwhile n > 1:\n    n = n // 2\n    count = count + 1\nprint(count)",
+  "hints": []
+ },
+ {
+  "id": "r-fizz",
+  "kind": "script",
+  "title": "FizzBuzz",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "For every number from 1 to limit, print Fizz if it divides by 3, Buzz if it divides by 5, FizzBuzz if it divides by both, otherwise the number itself.",
+  "setup": "limit = 15",
+  "starter": "",
+  "ref": "for i in range(1, limit + 1):\n    if i % 15 == 0:\n        print(\"FizzBuzz\")\n    elif i % 3 == 0:\n        print(\"Fizz\")\n    elif i % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(i)",
+  "hints": []
+ },
+ {
+  "id": "r-fib",
+  "kind": "script",
+  "title": "Fibonacci list",
+  "section": "Python Basics",
+  "topic": "range & while loops",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Build a list of the first count Fibonacci numbers (each one is the sum of the two before it, starting 0, 1) and print it.",
+  "setup": "count = 8",
+  "starter": "",
+  "ref": "fib = [0, 1]\nwhile len(fib) < count:\n    fib.append(fib[-1] + fib[-2])\nprint(fib)",
+  "hints": []
+ },
+ {
+  "id": "t-vowels",
+  "kind": "script",
+  "title": "Count the vowels",
+  "section": "Python Basics",
+  "topic": "Strings",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Count the vowels (a, e, i, o, u) in word and print the count.",
+  "setup": "word = \"education\"",
+  "starter": "",
+  "ref": "count = 0\nfor ch in word:\n    if ch in \"aeiou\":\n        count = count + 1\nprint(count)",
+  "hints": []
+ },
+ {
+  "id": "t-reverse",
+  "kind": "script",
+  "title": "Reverse a word",
+  "section": "Python Basics",
+  "topic": "Strings",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print word written backwards.",
+  "setup": "word = \"python\"",
+  "starter": "",
+  "ref": "backwards = \"\"\nfor ch in word:\n    backwards = ch + backwards\nprint(backwards)",
+  "hints": []
+ },
+ {
+  "id": "t-palin",
+  "kind": "script",
+  "title": "Palindrome check",
+  "section": "Python Basics",
+  "topic": "Strings",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print True if word reads the same forwards and backwards, otherwise False.",
+  "setup": "word = \"level\"",
+  "starter": "",
+  "ref": "backwards = \"\"\nfor ch in word:\n    backwards = ch + backwards\nprint(word == backwards)",
+  "hints": []
+ },
+ {
+  "id": "h-second",
+  "kind": "script",
+  "title": "Second largest",
+  "section": "Python Basics",
+  "topic": "Lists, harder",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print the second largest number in the list, without sorting it.",
+  "setup": "numbers = [7, 3, 15, 9, 12]",
+  "starter": "",
+  "ref": "largest = numbers[0]\nsecond = numbers[1]\nif second > largest:\n    largest = numbers[1]\n    second = numbers[0]\nfor i in range(2, len(numbers)):\n    n = numbers[i]\n    if n > largest:\n        second = largest\n        largest = n\n    elif n > second:\n        second = n\nprint(second)",
+  "hints": []
+ },
+ {
+  "id": "h-dedupe",
+  "kind": "script",
+  "title": "Remove duplicates",
+  "section": "Python Basics",
+  "topic": "Lists, harder",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Build a new list with the duplicates removed, keeping the original order, then print it.",
+  "setup": "numbers = [1, 2, 2, 3, 1, 4]",
+  "starter": "",
+  "ref": "unique = []\nfor n in numbers:\n    if n not in unique:\n        unique.append(n)\nprint(unique)",
+  "hints": []
+ },
+ {
+  "id": "h-above",
+  "kind": "script",
+  "title": "Above the average",
+  "section": "Python Basics",
+  "topic": "Lists, harder",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Count how many numbers are above the average of the list and print the count.",
+  "setup": "numbers = [2, 4, 6, 8, 10]",
+  "starter": "",
+  "ref": "total = 0\nfor n in numbers:\n    total = total + n\naverage = total / len(numbers)\ncount = 0\nfor n in numbers:\n    if n > average:\n        count = count + 1\nprint(count)",
+  "hints": []
+ },
+ {
+  "id": "h-reverse",
+  "kind": "script",
+  "title": "Reverse a list",
+  "section": "Python Basics",
+  "topic": "Lists, harder",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Build a new list with the items in reverse order and print it. Hint: range() can count backwards.",
+  "setup": "numbers = [1, 2, 3, 4]",
+  "starter": "",
+  "ref": "backwards = []\nfor i in range(len(numbers) - 1, -1, -1):\n    backwards.append(numbers[i])\nprint(backwards)",
+  "hints": []
+ },
+ {
+  "id": "h-position",
+  "kind": "script",
+  "title": "Position of the first 9",
+  "section": "Python Basics",
+  "topic": "Lists, harder",
+  "pattern": "Practice basics",
+  "difficulty": "Easy",
+  "sets": [
+   "Basics"
+  ],
+  "q": "Print the position (index) of the first 9 in the list, or -1 if there is no 9.",
+  "setup": "numbers = [5, 8, 2, 9, 2]",
+  "starter": "",
+  "ref": "position = -1\nfor i in range(len(numbers)):\n    if numbers[i] == 9:\n        position = i\n        break\nprint(position)",
+  "hints": []
+ }
+]

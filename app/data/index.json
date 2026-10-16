@@ -1,0 +1,26 @@
+{
+ "version": 1,
+ "files": [
+  {
+   "file": "data/questions/core-python.json",
+   "section": "Core Python",
+   "count": 15
+  },
+  {
+   "file": "data/questions/data-structures-algorithms.json",
+   "section": "Data Structures & Algorithms",
+   "count": 123
+  },
+  {
+   "file": "data/questions/interview-q&a.json",
+   "section": "Interview Q&A",
+   "count": 36
+  },
+  {
+   "file": "data/questions/python-basics.json",
+   "section": "Python Basics",
+   "count": 33
+  }
+ ],
+ "total": 207
+}

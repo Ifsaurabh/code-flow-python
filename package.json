@@ -1,0 +1,16 @@
+{
+  "name": "code-flow-python",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Learn Python by watching your code run line by line. Real Python 3 (Pyodide), offline PWA and Android app.",
+  "scripts": {
+    "build:data": "python3 tools/build.py && python3 tools/make_sw.py",
+    "vendor": "node tools/update_vendor.mjs",
+    "serve": "python3 -m http.server 8000 -d app",
+    "test": "python3 tools/build.py && python3 tests/e2e.py"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "4.10.38",
+    "pyodide": "314.0.7"
+  }
+}

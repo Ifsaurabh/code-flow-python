@@ -1,0 +1,6 @@
+{
+  "appId": "com.sagar.codeflowpython",
+  "appName": "Code Flow Python",
+  "webDir": "app",
+  "server": { "androidScheme": "https" }
+}
