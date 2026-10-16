@@ -547,12 +547,13 @@ function openAdd() {
     });
     countLbl();
   };
-  const countLbl = () => { status.textContent = drafts.length ? `${drafts.filter(d => d.keep).length} of ${drafts.length} questions will be added` : ''; };
+  const countLbl = () => { status.textContent = drafts.length ? `${drafts.filter(d => d.keep).length} of ${drafts.length} questions will be added` + (drafts.report ? '. ' + drafts.report : '') : ''; };
   const split = () => {
     const t = ta.value.trim();
     if (!t) { status.textContent = 'Paste some text first.'; return; }
     if (t.startsWith('[') || t.startsWith('{')) { try { importJson(JSON.parse(t)); return; } catch (e) { /* plain text then */ } }
-    drafts = draftsFromText(t).map(d => ({ ...d, setup: guessSetup(d.q) }));
+    const found = draftsFromText(t); const rep = found.report;
+    drafts = found.map(d => ({ ...d, setup: guessSetup(d.q) })); drafts.report = rep;
     drawPreview();
   };
   const importJson = (data) => {

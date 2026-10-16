@@ -1,5 +1,7 @@
 // Turns pasted text (from a PDF, a web page, notes) into draft questions.
-const LEAD = /^\s*(?:(?:Q(?:uestion)?|Problem|Ex(?:ercise)?)\.?\s*)?(\d{1,4})\s*[\.\):\-]\s+(?=\S)/i;
+// "1. text", "1.text" (PDFs often drop the space), "Q2)", "Problem 3:". The text after the number must start
+// with a letter, quote or bracket, so "3.14" or "1,000" are not mistaken for question numbers.
+const LEAD = /^\s*(?:(?:Q(?:uestion)?|Problem|Ex(?:ercise)?)\.?\s*)?(\d{1,4})\s*[\.\):\-]\s*(?=[A-Za-z\u0900-\u097F"'\u2018\u201C(\[<#])/i;
 
 export function cleanText(t) {
   return String(t || '')
@@ -15,9 +17,8 @@ export function splitQuestions(raw) {
   if (!text) return [];
   const lines = text.split('\n');
   // 1) numbered markers: "1.", "Q2)", "Problem 3:"
-  const idx = [];
-  lines.forEach((l, i) => { if (LEAD.test(l)) idx.push(i); });
-  if (idx.length >= 2 && looksSequential(lines, idx)) return cut(lines, idx);
+  const idx = numberedMarkers(lines);
+  if (idx.length >= 2) return cut(lines, idx);
   // 2) separator lines: ---, ===, ***
   const sep = lines.map((l, i) => (/^\s*([-=*_~]){3,}\s*$/.test(l) ? i : -1)).filter(i => i >= 0);
   if (sep.length) {
@@ -36,11 +37,41 @@ export function splitQuestions(raw) {
   return [text];
 }
 
-function looksSequential(lines, idx) {
-  const nums = idx.map(i => +LEAD.exec(lines[i])[1]);
-  let up = 0;
-  for (let k = 1; k < nums.length; k++) if (nums[k] >= nums[k - 1]) up++;
-  return up >= (nums.length - 1) * 0.7;
+// Keep only the markers that form a running 1, 2, 3 ... chain. A line like "4.exit" inside question 21's
+// menu, or "10th year - 10000" in a worked example, is rejected because its number does not continue the chain.
+function numberedMarkers(lines) {
+  const cand = [];
+  lines.forEach((l, i) => {
+    let m = LEAD.exec(l);
+    if (!m) {
+      // number alone on its line ("20."), with the text on the next non-empty line
+      const a = /^\s*(\d{1,4})\s*[\.\)]\s*$/.exec(l);
+      if (a) { let j = i + 1; while (j < lines.length && !lines[j].trim()) j++; if (j < lines.length && /^[A-Za-z"'(]/.test(lines[j].trim())) m = a; }
+    }
+    if (m) cand.push({ i, n: +m[1] });
+  });
+  if (cand.length < 2) return [];
+  // try each early candidate as the chain start and keep the longest chain
+  let best = [];
+  for (let s = 0; s < Math.min(cand.length, 6); s++) {
+    const chain = [cand[s]];
+    let last = cand[s].n;
+    for (let k = s + 1; k < cand.length; k++) {
+      const n = cand[k].n;
+      if (n > last && n <= last + 4) { chain.push(cand[k]); last = n; }
+    }
+    if (chain.length > best.length) best = chain;
+  }
+  return best.length >= 2 ? best.map(c => c.i) : [];
+}
+
+// Tells the user if the numbering has gaps, e.g. "numbers 22, 23 were not found".
+export function numberingReport(chunks) {
+  const nums = chunks.map(c => { const m = LEAD.exec(c.split('\n')[0]) || /^\s*(\d{1,4})\s*[\.\)]\s*$/.exec(c.split('\n')[0]); return m ? +m[1] : null; }).filter(n => n != null);
+  if (nums.length < 2) return '';
+  const have = new Set(nums), missing = [];
+  for (let n = Math.min(...nums); n <= Math.max(...nums); n++) if (!have.has(n)) missing.push(n);
+  return missing.length ? `Question numbers ${Math.min(...nums)} to ${Math.max(...nums)} found. Missing numbers: ${missing.slice(0, 30).join(', ')}${missing.length > 30 ? '…' : ''}. Check the source for those.` : `Numbers ${Math.min(...nums)} to ${Math.max(...nums)} are all present.`;
 }
 
 function cut(lines, idx) {
@@ -67,7 +98,7 @@ const TOPIC_RE = /\b(?:topics?|tags?|pattern|category)\s*[:\-]\s*([^\n]{2,80})/i
 
 export function toDraft(chunk, i) {
   let body = chunk.trim();
-  body = body.replace(LEAD, '');
+  body = body.replace(/^\s*\d{1,4}\s*[\.\)]\s*\n+/, '').replace(LEAD, '');
   let lines = body.split('\n');
   let title = lines[0].replace(/^[#\s]+/, '').replace(/^(?:problem|question)\s*:?\s*/i, '').trim();
   let rest = lines.slice(1).join('\n').trim();
@@ -93,7 +124,10 @@ export function toDraft(chunk, i) {
 }
 
 export function draftsFromText(raw) {
-  return splitQuestions(raw).map(toDraft);
+  const chunks = splitQuestions(raw);
+  const d = chunks.map(toDraft);
+  d.report = numberingReport(chunks);
+  return d;
 }
 
 // Optional: pull a "Python value" out of an "Input: nums = [1,2,3]" style line so the Input box is pre-filled.
